@@ -22,7 +22,7 @@ class Activity(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     difficulty = db.Column(db.Integer)
-    signups = db.relationship('Signup', backref='activity',cascade="all, delete-orphan")
+    signups = db.relationship('Signup', backref='activity', cascade="all, delete-orphan")
     campers = association_proxy('signups', 'camper')
 
     def __repr__(self):
